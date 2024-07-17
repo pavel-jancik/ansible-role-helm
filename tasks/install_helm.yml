@@ -8,7 +8,7 @@
 
 - name: download sha256sum
   ansible.builtin.get_url:
-    url: '{{ helm_mirror }}/{{ helm_redis_filename }}.sha256'
+    url: '{{ helm_repo_path }}/{{ helm_redis_filename }}.sha256'
     dest: '{{ helm_download_dir }}/{{ helm_redis_filename }}.sha256'
     force: false
     use_proxy: true
@@ -22,7 +22,7 @@
 
 - name: download Helm
   ansible.builtin.get_url:
-    url: '{{ helm_mirror }}/{{ helm_redis_filename }}'
+    url: '{{ helm_repo_path }}/{{ helm_redis_filename }}'
     dest: '{{ helm_download_dir }}/{{ helm_redis_filename }}'
     checksum: 'sha256:{{ helm_sha256sum.content | b64decode | trim }}'
     force: false
