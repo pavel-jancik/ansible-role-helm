@@ -6,7 +6,7 @@
 
 - name: Check current helm version
   ansible.builtin.command: >-
-    {{ helm_bin_path }}/helm version --client --template
+    {{ helm_bin_path }} version --client --template
     {{ "'{{ if .Version }}{{ .Version }}{{ else }}{{ .Client.SemVer }}{{ end }}'" }}
   register: helm_installed_version
   failed_when: false
