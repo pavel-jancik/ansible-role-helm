@@ -5,12 +5,13 @@ name: CI
   push:
     branches:
       - master
+      - develop
   schedule:
     - cron: "30 4 * * 2"
 
 defaults:
   run:
-    working-directory: 'geerlingguy.helm'
+    working-directory: 'pavel-jancik.helm'
 
 jobs:
 
@@ -43,13 +44,15 @@ jobs:
         distro:
           - rockylinux9
           - ubuntu2004
+          - ubuntu2204
+          - ubuntu2404
           - debian10
 
     steps:
       - name: Check out the codebase.
         uses: actions/checkout@v4
         with:
-          path: 'geerlingguy.helm'
+          path: 'pavel-jancik.helm'
 
       - name: Set up Python 3.
         uses: actions/setup-python@v5
