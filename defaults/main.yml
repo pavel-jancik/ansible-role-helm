@@ -1,9 +1,15 @@
 ---
 # See available releases: https://github.com/helm/helm/releases/
-helm_version: 'v3.2.1'
+helm_version: 'v3.13.1'
 helm_platform: linux
 helm_arch: amd64
 
 helm_repo_path: "https://get.helm.sh"
 
 helm_bin_path: /usr/local/bin/helm
+
+# Dir where Helm should be installed
+helm_install_dir: '/usr/local/share/helm.{{ helm_version }}'
+
+# Directory to store files downloaded for Helm
+helm_download_dir: "{{ x_ansible_download_dir | default(ansible_env.HOME + '/.ansible/tmp/downloads') }}"
