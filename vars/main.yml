@@ -1,0 +1,4 @@
+# code: language=ansible
+---
+# File name of the Helm redistributable file
+helm_redis_filename: 'helm-v{{ helm_version }}-{{ helm_platform }}-{{ helm_arch }}.tar.gz'
