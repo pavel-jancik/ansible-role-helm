@@ -17,4 +17,4 @@
   when: >
     not helm_check.stat.exists
     or helm_installed_version.rc != 0
-    or helm_installed_version.stdout != ('v' + helm_version)
+    or helm_installed_version.stdout != helm_version
